@@ -22,7 +22,7 @@ async def test_create_sample_resource(
     )
     assert resp.status_code == expected_status
 
-    if 201 == expected_status:
+    if expected_status == 201:
         assert 'id' in resp.json()
         resource_id = resp.json().get('id')
         resource_db = await mongo_client.get_sample_resource(resource_id)
