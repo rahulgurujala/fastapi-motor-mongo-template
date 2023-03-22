@@ -27,6 +27,6 @@ async def test_create_sample_resource(
     )
     assert resp.status_code == expected_status
 
-    if 200 == expected_status:
+    if expected_status == 200:
         assert 'name' in resp.json()
         assert expected_name == resp.json().get('name')
